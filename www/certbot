@@ -1,0 +1,2 @@
+force renew
+sudo certbot --force-renewal -d sheerjoy.pl,www.sheerjoy.pl

@@ -1,0 +1,1 @@
+install-package jquery.datatables

@@ -1,0 +1,4 @@
+
+kodowanie znaków:
+  git config core.autocrlf
+  git config [--global|--local] core.autocrlf [true|input|false]

@@ -1,0 +1,4 @@
+ssh-keygen
+
+ssh-copy-id
+add public key to file authorized_keys

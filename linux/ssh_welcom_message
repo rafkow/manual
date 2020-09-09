@@ -1,0 +1,11 @@
+scripts location:
+    mani script:
+    /etc/motd
+    system scripts message:
+    /etc/update-motd.d/
+
+scripts create message in:
+/run/motd.dynamic
+
+load motd after login config file
+/etc/pam.d/login

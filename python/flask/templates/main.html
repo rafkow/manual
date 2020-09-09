@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+		<title>Hello from Flask</title>
+		<link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+	</head>
+	<body>
+		
+		<h1>Hello, World!</h1>
+		<h1>Your lucky number is <span id="luckyNumber"></span>!</h1>
+		<script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+		<script>
+			document.getElementById(luckyNumber).value = "komandos";
+			//var NuberSource = new EventSource("{{url_for('LuckyNumber')}}")
+			//NuberSource.onmessage = function(){
+			//	$('#luckyNumber').text(e.data);
+			//}
+		</script>
+	<body>
+</html>

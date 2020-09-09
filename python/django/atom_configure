@@ -1,0 +1,4 @@
+install pakage:
+  platformio-ide-terminal
+  autocompleat-python
+  atom-django

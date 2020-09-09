@@ -1,0 +1,8 @@
+ftp
+  open
+  get
+  put
+
+sftp
+  get -r
+  

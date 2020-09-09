@@ -1,0 +1,193 @@
+#include <Adafruit_GFX.h>
+#include <Adafruit_ST7735.h>
+#include <OneWire.h>
+#include <DallasTemperature.h>
+#include <SPI.h>
+
+
+// Ustawienia wyświetlacza TFT 1.8 128*160
+#define TFT_CS 10
+#define TFT_RST 9
+#define TFT_DC 8
+Adafruit_ST7735 tft = Adafruit_ST7735(TFT_CS,  TFT_DC, TFT_RST);
+
+//Ustawienia termometru DS18B20
+#define ONE_WIRE_BUS 2
+OneWire oneWire(ONE_WIRE_BUS);
+DallasTemperature sensors(&oneWire);
+DeviceAddress insideThermometer;
+int temperatura = 0;
+
+#define FAN 6
+int temperaturaWKomputerze = 0;
+int temperaturaWlaczeniaWentylatora = 0;
+bool wentylatorAktywny = true;
+
+
+float temperaturaPokoju(){
+  sensors.requestTemperatures();
+  int temp = sensors.getTempC(insideThermometer);
+  if(temperatura != temp){
+    tft.fillRect(4, 119 , 57, 26, ST7735_BLACK);
+    tft.setTextSize(3);
+    temperatura = temp;
+    tft.setCursor(15, 122);
+    tft.setTextColor(ST7735_BLUE);
+    tft.print(temperatura);
+  }
+  return temperatura ;
+}
+
+void uzycieRAM(String  ile)
+{
+  tft.fillRect(4,44,tft.width()-8,23,ST7735_BLACK);
+  tft.setTextSize(2);
+  tft.setCursor(40, 48);
+  tft.setTextColor(ST7735_BLUE);
+  tft.print(ile);
+}
+
+void uzycieCPU(String ile)
+{
+  ile += '%';
+  tft.fillRect(4,9,tft.width()-8,23,ST7735_BLACK);
+  tft.setTextSize(2);
+  tft.setCursor(50, 14);
+  tft.setTextColor(ST7735_BLUE);
+  tft.print(ile);
+}
+
+void pogoda(String ile, int dlugosc)
+{
+    tft.fillRect(64, 119 , 57, 26, ST7735_BLACK);
+    tft.setTextSize(3);
+    if(dlugosc>1){
+      if (dlugosc>2)
+        tft.setCursor(70, 122);
+      else
+        tft.setCursor(78, 122);
+    }
+    else 
+      tft.setCursor(90, 122);
+    tft.setTextColor(ST7735_BLUE);
+    tft.print(ile);
+}
+
+void sprawdzWentylator()
+{
+  if(temperaturaWKomputerze >= temperaturaWlaczeniaWentylatora){
+    digitalWrite(FAN, HIGH);
+  }
+  else digitalWrite(FAN, LOW);
+}
+
+void tempWentylatora(String ile)
+{
+    char buffer[2]; 
+    ile.toCharArray(buffer,2);
+    temperaturaWlaczeniaWentylatora = ile.toInt();
+    sprawdzWentylator();
+    tft.fillRect(64, 79 , 57, 26, ST7735_BLACK);
+    tft.setTextSize(3);
+    tft.setCursor(78, 83);
+    tft.setTextColor(ST7735_BLUE);
+    tft.print(ile);
+}
+
+void tempCPU(String ile)
+{
+    char buffer[2]; 
+    ile.toCharArray(buffer,2);
+    temperaturaWKomputerze = ile.toInt();
+    sprawdzWentylator();
+    tft.fillRect(4, 79 , 57, 26, ST7735_BLACK);
+    tft.setTextSize(3);
+    tft.setCursor(15, 83);
+    tft.setTextColor(ST7735_BLUE);
+    tft.print(ile);
+}
+
+void setup() {
+  Serial.begin(9600);
+  sensors.begin();
+  sensors.getAddress(insideThermometer, 0); // przypisanie adresu urzadzenia
+  sensors.setResolution(insideThermometer, 1); // set the resolution to 9 bit (Each Dallas/Maxim device is capable of several different resolutions)
+  tft.initR(INITR_BLACKTAB);
+  pinMode(FAN, OUTPUT);
+  pinMode(3, OUTPUT);  // napiecie na rezystor podci\agajacy na DS18B20
+  digitalWrite(3, HIGH);
+  sprawdzWentylator();
+}
+
+
+
+void loop() {
+  templatka();
+  while(1){
+    char parametr = 'E';
+    String wartosc = "";
+    int dlugosc = 0;
+    
+      while(Serial.available()){
+        if( parametr == 'E' )
+          parametr = (char)Serial.read();
+        char znak = (char)Serial.read();
+        if (znak == '\0') 
+          break;
+          wartosc += znak;     
+        dlugosc++;
+      }
+    
+    switch(parametr)
+    {
+      case('R'):
+        uzycieRAM(wartosc);
+      break;
+      case('C'):
+        uzycieCPU(wartosc);
+      break;
+      case('W'):
+        pogoda(wartosc, dlugosc);
+      break;
+      case('G'):
+        tempWentylatora(wartosc);
+      break;
+      case('T'):
+        tempCPU(wartosc);
+      break;
+      default:
+        temperaturaPokoju();
+     break;
+    }
+  delay(100);
+  }
+}
+
+void TFTprint(char *text, uint16_t color, byte x , byte y) {
+  tft.setCursor(x, y);
+  tft.setTextColor(color);
+  tft.setTextWrap(true);
+  tft.print(text);
+}
+
+void templatka(){
+  tft.setTextSize(1);
+  tft.fillScreen(ST7735_BLACK);
+  TFTprint("CPU",ST7735_WHITE,8,0);
+  tft.drawRect(3,8,tft.width()-6,25,ST7735_WHITE);
+  TFTprint("RAM",ST7735_WHITE,8,35);
+  tft.drawRect(3,43,tft.width()-6,25,ST7735_WHITE);
+  TFTprint("Temperatura w  C",ST7735_WHITE,8,70);
+  tft.drawCircle(93, 71, 2, ST7735_WHITE);
+  tft.drawRect(3,78,tft.width()-6,80,ST7735_WHITE);
+  tft.drawLine(3, 108, tft.width()-6, 108, ST7735_WHITE);
+  TFTprint("CPU",ST7735_WHITE,20,110);
+  TFTprint("wl. went",ST7735_WHITE,70,110);
+  tft.drawLine(3, 118, tft.width()-6, 118, ST7735_WHITE);
+  tft.drawLine(3, 146, tft.width()-6, 146, ST7735_WHITE);
+  TFTprint("Pokoju",ST7735_WHITE,15,148);
+  TFTprint("Na dworze",ST7735_WHITE,67,148);
+  tft.drawLine(62, 78, 62, 156, ST7735_WHITE);
+}
+
+

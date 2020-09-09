@@ -1,0 +1,8 @@
+PROG=window
+all:    $(PROG)
+CC=gcc
+INCLUDE=/usr/include/ncurses
+MODULE=ncurses
+CFLAGS=-g -Wall -ansi
+%:  %.c ;   $(CC)   $(CFLAGSF)  -I$(INCLUDE)    -l$(MODULE) -o  $@  $<
+clean:  ;   rm  $(PROG) 

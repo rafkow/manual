@@ -1,0 +1,23 @@
+creta:
+  virtualenv [name]
+  virtualenv -p python3.x /path/to/myvirtualenv [name]
+  virtualenv -p /path/to/mypython /path/to/myvirtualenv [name]
+
+activate:
+  linux:
+    source venv/bin/activate
+
+  windows:
+    .\venv\Scripts\activate
+
+check content:
+  linux:
+    which python
+    which pip
+
+  windows:
+    check dont work
+
+select python version:
+  virtualenv -p python3.x /path/to/myvirtualenv
+  virtualenv -p /path/to/mypython /path/to/myvirtualenv
