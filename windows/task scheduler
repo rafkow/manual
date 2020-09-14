@@ -1,0 +1,5 @@
+# Harmonogram Zadań
+# odpowiednik cron
+# odpala zadania regularnie
+
+$ taskschd.msc
