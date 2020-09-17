@@ -1,3 +1,6 @@
+Install
+  sudo apt-get install python3-venv
+
 creta:
   virtualenv [name]
   virtualenv -p python3.x /path/to/myvirtualenv [name]

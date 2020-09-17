@@ -1,2 +1,6 @@
-find source command:
+wyszukiwanie
+  komendy
   type -a [command]
+
+
+df - zasoby dyskowe
