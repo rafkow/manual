@@ -68,7 +68,7 @@ public void Add{entity}({entity} item) {begin}
     command.CommandType=System.Data.CommandType.Text;
     command.CommandText=query;
     command.BindByName=true;
-{ParametersGenerator()}
+    {ParametersGenerator()}
     command.Connection=GetOracleConnection();
     SendToDB(command);
 {end}
