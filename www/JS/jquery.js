@@ -28,3 +28,18 @@ $(window).scrollTop(localStorage['scrollposition']);
 localStorage['scrollposition'] = $(window).scrollTop();
 
 console.log("[" + index + "] jest " + element);
+
+// automatyczne zapisywanie checkboxów
+<input id="@string.Format("swp_chb{0}", ix*3+2)" type="checkbox" class="swp_chb" name="@(ix*3+2)" />
+
+$('.swp_chb').each(function () {
+            if ($(this).prop("checked") == true) {
+                swp_set.push($(this).attr('name'));
+            }
+        });
+//Array.from(prop_set)
+$('#Sheet_Securing_work_place_set').attr('value', Array.from(swp_set));
+// przypisz zaznaczone elementy właściwości do obiektu MCV
+$('#Sheet_SelectedProperties').attr("value", Array.from(prop_set));
+// zapisz listę pracowników wykonujących pracę
+$('#Sheet_Workers').attr("value", Array.from(workers_set));
