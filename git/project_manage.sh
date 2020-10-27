@@ -1,4 +1,4 @@
-back to previous verion
+git workers_setback to previous verion
   last commit
     git checkout .
   selected commit
