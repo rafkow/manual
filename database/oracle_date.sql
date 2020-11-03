@@ -9,6 +9,9 @@ SELECT
 FROM
   DUAL;
 
+TRUNC(SYSDATE) - today
+select * from gb_enter_register where TRUNC(SYSDATE) = TRUNC(enter_date);
+
 TO_DATE( '31-Dec-1999 15:30:20 ',  'DD-Mon-YYYY HH24:MI:SS' )
 
 TO_CHAR( SYSDATE, 'HH24' ) hour,
