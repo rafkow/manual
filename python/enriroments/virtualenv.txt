@@ -8,6 +8,8 @@ creta:
   virtualenv [name]
   virtualenv -p python3.x /path/to/myvirtualenv [name]
   virtualenv -p /path/to/mypython /path/to/myvirtualenv [name]
+  alternatywnie:
+  python3 -m venv ~/my_venv
 
 activate:
   linux:
@@ -27,3 +29,7 @@ check content:
 select python version:
   virtualenv -p python3.x /path/to/myvirtualenv
   virtualenv -p /path/to/mypython /path/to/myvirtualenv
+
+
+virtualenv command
+  pip list | python -m pip list
