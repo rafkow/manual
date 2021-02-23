@@ -7,7 +7,7 @@ git workers_setback to previous verion
     git reset --hard origin/master
 
 branch
-  create new ans switch
+  create new and switch
     git checkout -b [name]
 
 
