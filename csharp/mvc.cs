@@ -6,6 +6,15 @@ public ActionResult CourseDocument([FromBody] CourseOrder course) {
     return new ActionAsPdf("PrintDocument", course) { FileName="Szkolenie.pdf" };
 }
 
+[Authorize(Roles = "Administrator")]
+[Authorize(Roles = "HRManager,Finance")] // or
+
+[Authorize(Roles = "PowerUser")] // and
+[Authorize(Roles = "ControlPanelUser")]
+
+[Authorize(Roles = @"INDORAMA\Organizacja-IT-Group,INDORAMA\Organizacja-HR-Group")]
+
+
 public ActionResult PrintDocument(CourseOrder course) {
             ManageCourses manage = new ManageCourses();
             PrintModel model = new PrintModel {
