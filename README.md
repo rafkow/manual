@@ -1,2 +1,4 @@
-programming manuals
-code samples
+# programming manuals
+
+## code samples
+kod i przykłady jego użycia
