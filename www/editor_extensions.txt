@@ -1,2 +1,3 @@
 Emmet  -- szybkie kreowanie Html
   visual studio to rozszerzenie nazywa się ZenCode
+  https://docs.emmet.io/cheat-sheet/
