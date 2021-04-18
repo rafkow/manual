@@ -16,3 +16,6 @@ IP forwarding:
   DEFAULT_FORWARD_POLICY="ACCEPT"
 
 sudo ufw allow in on tun0 to any app Samba
+
+
+ufw allow 'Nginx HTTP'
