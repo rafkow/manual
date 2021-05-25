@@ -20,3 +20,6 @@ BEGIN
                     level <= length(regexp_replace(ipropertie_id, '[^,]+')) + 1
             ) AS sys.odcinumberlist) ) levels;
 END;
+
+select * from gb_invitations i where i.id not in (select invitation_id from gb_visit group by invitation_id);
+select * from gb_visit v where v.id not in (select id_visit from gb_visit2obj group by id_visit);
