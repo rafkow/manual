@@ -2,3 +2,6 @@
 kodowanie znaków:
   git config core.autocrlf
   git config [--global|--local] core.autocrlf [true|input|false]
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
