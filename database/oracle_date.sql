@@ -18,3 +18,7 @@ update gb_invitations set exp_date = to_date('31-12-2021', 'DD-MM-YYYY') where v
 TO_CHAR( SYSDATE, 'HH24' ) hour,
 TO_CHAR( SYSDATE, 'MI' ) minute,
 TO_CHAR( SYSDATE, 'SS' ) second
+
+select to_char(SYSDATE, 'yyyyMMdd') from dual;
+select add_months(trunc(sysdate, 'mm'), -1) from dual;
+select to_char(add_months(SYSDATE, -36), 'yyyyMMdd') from dual;
