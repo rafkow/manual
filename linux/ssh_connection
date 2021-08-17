@@ -1,4 +1,5 @@
 ssh-keygen
 
 ssh-copy-id
+ssh-copy-id pi@10.8.0.10
 add public key to file authorized_keys
