@@ -1,1 +1,3 @@
 testparm - komenda testujaca config smb.conf
+
+smbpasswd -a [username]
