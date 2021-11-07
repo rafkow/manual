@@ -27,6 +27,8 @@ var dict = {};
 $(window).scrollTop(localStorage['scrollposition']);
 localStorage['scrollposition'] = $(window).scrollTop();
 
+localStorage.removeItem('scrollposition');
+
 console.log("[" + index + "] jest " + element);
 
 // automatyczne zapisywanie checkboxów
