@@ -22,7 +22,8 @@ var dict = {};
 @foreach(var item in Model.Relations) { // item.Value  <int[]>
     @:dict[@item.Key] = @Html.Raw(Json.Encode(item.Value));
 }
-
+// Html.Raw naprawia błędy z kodowaniem znkaów utf-8
+@:mounths.push('@Html.Raw(item)');
 //  zaladuj co cookies pozycje strony i wczytaj po przeładowaniu
 $(window).scrollTop(localStorage['scrollposition']);
 localStorage['scrollposition'] = $(window).scrollTop();
