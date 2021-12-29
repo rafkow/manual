@@ -1,3 +1,6 @@
+var propki = o.GetType().GetProperties().Where(p => !exclude.Contains(p.Name, StringComparer.OrdinalIgnoreCase)).Select(p => p.Name).ToArray();
+root.Equals(root2, StringComparison.Ordinal);
+
 @ - multiline string
 string przyklad = @"to jest
 napis wielo-
