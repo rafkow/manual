@@ -102,3 +102,12 @@ Problem statement
 Find all the customers whose first and last names are not unique in our database, as well as the number of times each first and last name pair appears in our database.
 
 Sort the received result by number of time it appears in descending order.
+
+
+CREATE SEQUENCE seq_gb_er
+ START WITH     5000
+ INCREMENT BY   1
+ NOCACHE
+ NOCYCLE;
+
+alter table gb_enter_register MODIFY id DEFAULT seq_gb_er.nextval;
