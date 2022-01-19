@@ -5,6 +5,12 @@ Zainstaluj z Package-Manager
 Install-Package MySQL.Data -Version 6.9.9
 Install-Package MySql.Data.Entity -Version 6.9.10
 
+Install-Package Microsoft.EntityFrameworkCore
+Install-Package Microsoft.EntityFrameworkCore.Tools
+Install-Package Oracle.EntityFrameworkCore
+
+
+
 Enable-Migrations
 Add-Migration [-Context PTWContext] [nazwa migracji]
 Update-Database
