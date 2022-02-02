@@ -18,6 +18,8 @@ Update-Database
 Scaffold-DbContext "PASSWORD=Eurochem;USER ID=ECM;DATA SOURCE=oradb.pl.indorama.net:1521/skecm" Oracle.EntityFrameworkCore -OutputDir Models -Tables GB_COMPANY,GB_COMPANY_OBJ,GB_ENTER_REGISTER,GB_INVITATIONS,GB_VISIT,GB_VISIT2OBJ
 Scaffold-DbContext "PASSWORD=Vigran;USER ID=Vigran;DATA SOURCE=oradb.pl.indorama.net:1521/skecm" Oracle.EntityFrameworkCore -OutputDir Models
 
+Scaffold-DbContext "PASSWORD=PROJEKTY_DEV;USER ID=PROJEKTY_DEV;DATA SOURCE=oradb.pl.indorama.net:1521/poligon.pl.indorama.net" Oracle.EntityFrameworkCore -OutputDir Models
+
 
 builder.Services.AddDbContext<PTWContext>(options =>
     options.UseOracle(@"User Id=RK;Password=RKOWALEWSKI;Data Source=oradb.pl.indorama.net:1521/poligon.pl.indorama.net", b => b.UseOracleSQLCompatibility("12"))
