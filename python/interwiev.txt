@@ -1,0 +1,62 @@
+from platform import python_implementation
+from tracemalloc import take_snapshot
+from unittest.util import _count_diff_all_purpose
+
+
+
+
+Czy python się kompiluje?
+Tak, do byte codu
+
+Zen of python:
+    dobre praktyki w python
+    
+Set nie może przechowywać Listy
+    tylko obiekty hashowalne posiadające hash()
+    Podobnie słowniki klucz muszą mieć haszowany
+    clasa może być hash jesli ma __hash__()
+
+
+__str__() vs __repr__()
+    Obie metody zachowują się podobnie
+    __str__() - przeznaczona jest dla użytkownika
+    __repr__() - przeznaczona jest dla Programu
+
+
+zamrażanie zamiennych = readonly()
+   A = frozenset([1, 2, 3, 4])
+
+# znajdź przykład 
+
+DZIEDZIECZENEI
+    super() - jest instancją klasy macieżystej
+
+    wielodziedziczenie
+    python MRO -> Method Resolution Order
+        class A:
+            def method(self):
+                print("A.method() called")
+
+        class B:
+            def method(self):
+                print("B.method() called")
+
+        class C(A, B):
+            pass
+
+        class D(C, B):
+            pass
+
+        d = D()
+        d.method()
+
+        D -> C -> A -> B
+
+    Super przykład na Super(D, self)
+    https://gaopinghuang0.github.io/2018/12/29/dig-into-python-super-and-mro
+
+
+
+    
+
+

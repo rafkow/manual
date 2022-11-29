@@ -13,6 +13,10 @@ console.log('your message');
 var catalogs = [];
 var catalogs_dict = {};
 
+var alpha   =   ['A', 'B', 'C', 'D', 'E'];
+var removed =   alpha.splice(3, 1);
+console.log(alpha); // [“A”, “B”, “C”, “E”]
+
 @:properties_selected = @Html.Raw(Json.Encode(Model.SelectedProperties));
 
 // przypisy z .Net Framework

@@ -1,5 +1,5 @@
 string name = "Mr. Henry Hunt";
-string patern ="(Mr\\.? |Mrs\\.? |Miss |Ms\\.? )";
+string pattern ="(Mr\\.? |Mrs\\.? |Miss |Ms\\.? )";
 Regex.Replace(name, pattern, String.Empty)
 >> Henry Hunt
 

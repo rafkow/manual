@@ -9,6 +9,7 @@ SELECT
 FROM
   DUAL;
 
+TRUNC(date_time_value) - obcina godzine zostawia tylko dzień
 TRUNC(SYSDATE) - today
 select * from gb_enter_register where TRUNC(SYSDATE) = TRUNC(enter_date);
 
