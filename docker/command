@@ -1,0 +1,7 @@
+docker
+    build 
+        -f <Dockerfile_name>[Dockerfile] 
+
+    run 
+        -p 3000:3000 
+        -v /app

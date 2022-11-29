@@ -2,6 +2,7 @@ select x.*, y.f_nm, q.f_nm, q.f_nm from pls_result_item x , zaa01mt y , zaa01mt 
 where
 x.confirm_1 = y.emp_no(+) and
 x.confirm_2 = z.emp_no(+) and 
+
 x.operator_cd = q.emp_no(+);
 
 select x.*, y.f_nm, z.f_nm, q.f_nm from pls_result_item x
