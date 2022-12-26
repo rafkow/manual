@@ -1,0 +1,6 @@
+docker run redis
+
+redis-server
+
+redis-cli
+

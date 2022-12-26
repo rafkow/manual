@@ -1,7 +1,39 @@
 docker
     build 
+        . - build with defaults
         -f <Dockerfile_name>[Dockerfile] 
+        -t [tagname]/[project]:[latest] - named container
 
-    run 
+    create 
+        [instance] [command]
+        >> instance_id
+
+
+    start [instance_id]
+        -a display output
+
+    logs [instance_id] - display console
+
+    run = create + start /
+        [command] [parameters] 
         -p 3000:3000 
         -v /app
+
+    stop [instance_id]
+    kill [instance_id]
+
+    ps - get containers id
+        --all
+
+    commit 
+        -c 'CMD ["redis-server"]'
+        -c "CMD 'redis-server'" - windows
+
+    exec [container_id] [command] 
+        -i - set stdin on terminal
+        -t - nice output
+
+    attach [container_id]    
+    
+    system 
+        prune - czyści wszystkie informacje o instancjach dockera
