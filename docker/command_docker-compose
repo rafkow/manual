@@ -1,0 +1,8 @@
+docker-compose 
+    up 
+        --build      rebuild before changes
+        -d           display in background
+    
+    down
+
+    ps

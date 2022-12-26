@@ -1,0 +1,8 @@
+version: '3'
+services:
+  image: "redis-server" # use standard image
+  node-app:
+    restart: on-failure  # "no" always unless-stopped on-failure
+    build: .  # build Dockerfile 
+    ports:
+      - "4001:8081"
