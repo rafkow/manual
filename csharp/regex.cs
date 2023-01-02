@@ -32,3 +32,6 @@ Quantifiers:
 #### Sample Regexs ####
 
 [a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+
+
+// supper sample
+// https://www.youtube.com/watch?v=6AsSfyHWWls

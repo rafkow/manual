@@ -1,0 +1,6 @@
+npm install -g create-react-app
+create-react-app client
+
+or
+
+npx create-react-app client
