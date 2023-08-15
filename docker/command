@@ -4,7 +4,7 @@ docker
         -f <Dockerfile_name>[Dockerfile] 
         -t [tagname]/[project]:[latest] - named container
 
-    create 
+    create - create docker instance only for one command 
         [instance] [command]
         >> instance_id
 
@@ -18,6 +18,8 @@ docker
         [command] [parameters] 
         -p 3000:3000 
         -v /app
+    # docker run -d -p 5000:5000 bti_flask
+
 
     stop [instance_id]
     kill [instance_id]

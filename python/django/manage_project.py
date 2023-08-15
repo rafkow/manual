@@ -14,3 +14,10 @@ After edit admin.py
 	python manage.py migrate
 	python manage.py makemigrations [name_app]
 	python manage.py migrate
+
+
+config(
+        'DB_CONNECTION_SETTINGS',
+        default=f'sqlite:///db.sqlite3',
+        cast=db_url
+)

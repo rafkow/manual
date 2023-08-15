@@ -6,3 +6,6 @@ docker-compose
     down
 
     ps
+    
+    run
+        docker-compose run --rm app sh -c "sh"

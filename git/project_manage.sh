@@ -5,6 +5,7 @@ git workers_setback to previous verion
     git fetch 5ed86c9
     git reset --hard [origin/master] 1f4e26d
     git reset --hard origin/master
+    git revert 
 
 branch
   create new and switch
